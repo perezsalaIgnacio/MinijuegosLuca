@@ -1,31 +1,24 @@
-package com.example.demo.beans;
+package com.example.demo.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="juegos")
-public class Juego {
-	@Id
-	@Column(name="id_juego")
+public class JuegoDTO {
+	
 	private int id_juegos;
-	@Column(name="valoracion")
+	
 	private double valoracion;
-	@Column(name="descripcion")
+	
 	private String descripcion;
-	@Column(name="mejor_usuario")
+	
 	private String mejorUsuario;
-	@Column(name="fecha")
+	
 	private Date fecha;
 	
 	
-	public Juego() {}
+	public JuegoDTO() {}
 	
-	public Juego(int id_juegos, double valoracion, String descripcion, String mejorUsuario, Date fecha) {
+	public JuegoDTO(int id_juegos, double valoracion, String descripcion, String mejorUsuario, Date fecha) {
+		super();
 		this.id_juegos = id_juegos;
 		this.valoracion = valoracion;
 		this.descripcion = descripcion;
@@ -100,8 +93,5 @@ public class Juego {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
-	
-	
 	
 }
