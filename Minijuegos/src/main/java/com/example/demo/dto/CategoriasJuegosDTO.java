@@ -1,26 +1,14 @@
-package com.example.demo.beans;
+package com.example.demo.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="categoria_juegos")
-public class CategoriasJuegos {
-	@Id
-	@Column(name="id_categoria_juego")
-	private int id_categoria_juego;
-	@Column(name="id_juego")
+public class CategoriasJuegosDTO {
 	private int id_juego;
-	@Column(name="id_categoria")
 	private int id_categoria;
+	private int id_categoria_juego;
 	
+	public CategoriasJuegosDTO() {}
 	
-	public CategoriasJuegos() {}
-	
-	public CategoriasJuegos(int id_juego, int id_categoria, int id_categoria_juego) {
-		super();
+	public CategoriasJuegosDTO(int id_juego, int id_categoria, int id_categoria_juego) {
+		
 		this.id_juego = id_juego;
 		this.id_categoria = id_categoria;
 		this.id_categoria_juego = id_categoria_juego;
@@ -49,6 +37,4 @@ public class CategoriasJuegos {
 		this.id_categoria_juego = id_categoria_juego;
 	}
 	
-	
-
 }

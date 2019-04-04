@@ -1,5 +1,8 @@
 package com.example.demo.daos;
 
-public interface JuegoRepository {
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface JuegoRepository extends CrudRepository<JuegoRepository,Integer> {
 
 }
