@@ -1,26 +1,14 @@
-package com.example.demo.beans;
+package com.example.demo.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="comentario_juegos")
-public class ComentariosJuegos {
-	@Id
-	@Column(name="id_usuario")
+public class ComentariosJuegosDTO {
 	private int id_usuario;
-	@Column(name="id_juego")
 	private int id_juego;
-	@Column(name="id_comentario")
 	private int id_comentario;
-	@Column(name="comentario")
 	private String comentario;
 	
-	public ComentariosJuegos() {}
+	public ComentariosJuegosDTO() {}
 	
-	public ComentariosJuegos(int id_usuario, int id_juego, int id_comentario, String comentario) {
+	public ComentariosJuegosDTO(int id_usuario, int id_juego, int id_comentario, String comentario) {
 		super();
 		this.id_usuario = id_usuario;
 		this.id_juego = id_juego;
@@ -58,5 +46,4 @@ public class ComentariosJuegos {
 	}
 	
 	
-
 }
