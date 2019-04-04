@@ -1,0 +1,81 @@
+CREATE SCHEMA `go_fun` ;
+
+CREATE TABLE `go_fun`.`usuarios` (
+  `id_usuario` INT NOT NULL,
+  `pass` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `rol` VARCHAR(45) NOT NULL,
+  `nick` VARCHAR(45) NOT NULL
+  PRIMARY KEY (`id_usuario`));
+  
+  CREATE TABLE `go_fun`.`categorias` (
+  `id_categoria` INT NOT NULL,
+  `descripcion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_categoria`));
+  
+  CREATE TABLE `go_fun`.`puntuaciones` (
+  `id_puntuacion`  INT NOT NULL,
+  `id_juego`  INT NOT NULL,
+  `id_usuario` INT NOT NULL,
+  `puntuacion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_puntuacion`));
+  
+  CREATE TABLE `go_fun`.`juegos` (
+  `id_juego`  INT NOT NULL,
+  `valoracion` DOUBLE NOT NULL ,
+  `descripcion` VARCHAR(45) NOT NULL,
+  `mejor_usuario` VARCHAR(45) NOT NULL,
+  `fecha` DATE NOT NULL,
+  PRIMARY KEY (`id_juego`));
+  
+  CREATE TABLE `go_fun`.`comentario_juegos` (
+  `id_comentario`  INT NOT NULL,
+  `id_juego`  INT NOT NULL,
+  `id_ususario`  INT NOT NULL,
+  `comentario` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_comentario`));
+  
+ CREATE TABLE `go_fun`.`categoria_juegos` ( 
+`id_categoria_juegos` INT NOT NULL ,
+`id_categoria` INT NOT NULL ,
+`id_juego` INT NOT NULL,
+ PRIMARY KEY (`id_categoria_juegos`));
+  
+ ALTER TABLE `go_fun`.`puntuaciones` 
+ADD CONSTRAINT `FK_ID_USUARIO`
+  FOREIGN KEY (`id_usuario`)
+  REFERENCES `go_fun`.`usuarios` (`id_usuario`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `FK_ID_JUEGO`
+  FOREIGN KEY (`id_juego`)
+  REFERENCES `go_fun`.`juegos` (`id_juego`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  
+  ALTER TABLE `go_fun`.`comentario_juegos` 
+DROP FOREIGN KEY `FK_ID_USUARIOS`;
+ALTER TABLE `go_fun`.`comentario_juegos` 
+ADD CONSTRAINT `FK_ID_USUARIOSS`
+  FOREIGN KEY (`id_ususario`)
+  REFERENCES `go_fun`.`usuarios` (`id_usuario`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `FK_ID_JUEGOSS`
+  FOREIGN KEY (`id_juego`)
+  REFERENCES `go_fun`.`juegos` (`id_juego`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  ALTER TABLE `go_fun`.`categoria_juegos` 
+ADD CONSTRAINT `FK_ID_JUEGOO`
+  FOREIGN KEY (`id_juego`)
+  REFERENCES `go_fun`.`juegos` (`id_juego`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `FK_ID_CATEGORIA`
+  FOREIGN KEY (`id_categoria`)
+  REFERENCES `go_fun`.`categorias` (`id_categoria`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
