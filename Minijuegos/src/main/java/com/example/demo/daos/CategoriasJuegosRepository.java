@@ -1,7 +1,5 @@
 package com.example.demo.daos;
 
-
-
-public interface CategoriasJuegosRepository{
+public interface CategoriasJuegosRepository {
 
 }
