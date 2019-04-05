@@ -1,5 +1,10 @@
 package com.example.demo.daos;
 
-public interface CategoriaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.beans.Categoria;
+
+
+public interface CategoriaRepository extends CrudRepository<Categoria,Integer> {
 
 }

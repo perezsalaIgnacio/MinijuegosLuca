@@ -1,5 +1,10 @@
 package com.example.demo.daos;
 
-public interface PuntuacionesRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.beans.Puntuaciones;
+
+
+public interface PuntuacionesRepository extends CrudRepository<Puntuaciones,Integer> {
 
 }
