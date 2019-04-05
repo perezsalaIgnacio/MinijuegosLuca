@@ -1,5 +1,10 @@
 package com.example.demo.daos;
 
-public interface CategoriasJuegosRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.beans.CategoriasJuegos;
+
+
+public interface CategoriasJuegosRepository extends CrudRepository<CategoriasJuegos,Integer>{
 
 }
